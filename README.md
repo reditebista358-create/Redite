@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redite's Cute Retro Site</title>
+<style>
+    body {
+        background-color: #f5e1f7;
+        font-family: "Courier New", monospace;
+        color: #333;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    /* Retro computer frame */
+    .screen {
+        background-color: #fff;
+        border: 6px solid #444;
+        border-radius: 10px;
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Animated Welcome */
+    h1 {
+        font-size: 2.5rem;
+        animation: pop 1s ease-in-out infinite alternate;
+        color: #d63384;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); color: #ff69b4; }
+    }
+
+    /* Social links */
+    .socials {
+        margin-top: 30px;
+    }
+
+    .socials a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #444;
+        font-size: 1.2rem;
+        background-color: #ffe4f2;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid #ffb6c1;
+        transition: background-color 0.3s;
+    }
+
+    .socials a:hover {
+        background-color: #ffb6c1;
+        color: white;
+    }
+
+    /* Hello Kitty pop-up */
+    .kitty {
+        position: absolute;
+        width: 80px;
+        pointer-events: none;
+        animation: fadeOut 2s forwards;
+    }
+
+    @keyframes fadeOut {
+        0% { opacity: 1; transform: scale(0.5) rotate(0deg); }
+        50% { opacity: 1; transform: scale(1.1) rotate(10deg); }
+        100% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+    }
+</style>
+</head>
+<body>
+
+<div class="screen">
+    <h1>Welcome</h1>
+    <p>Hello, my name is Redite and these are my socials:</p>
+
+    <div class="socials">
+        <a href="https://www.facebook.com/reditebista1" target="_blank">📘 Facebook</a>
+        <a href="https://www.instagram.com/reditebista11/" target="_blank">📸 Instagram</a>
+        <a href="https://www.tiktok.com/@reditebista" target="_blank">🎵 TikTok</a>
+        <a href="https://www.youtube.com/@reditebista4788" target="_blank">▶️ YouTube</a>
+    </div>
+</div>
+
+<script>
+    // Hello Kitty popping every 2-3 seconds
+    const helloKittyImg = "https://i.imgur.com/KoZec.png"; // Hello Kitty PNG
+
+    function popKitty() {
+        const kitty = document.createElement("img");
+        kitty.src = helloKittyImg;
+        kitty.className = "kitty";
+        
+        kitty.style.top = Math.random() * window.innerHeight + "px";
+        kitty.style.left = Math.random() * window.innerWidth + "px";
+
+        document.body.appendChild(kitty);
+
+        setTimeout(() => {
+            kitty.remove();
+        }, 2000);
+    }
+
+    setInterval(popKitty, Math.random() * 1000 + 2000);
+</script>
+
+</body>
+</html>
