@@ -3,115 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redite's Cute Retro Site</title>
+<title>Redite's Cute Site</title>
+
 <style>
-    body {
-        background-color: #f5e1f7;
-        font-family: "Courier New", monospace;
-        color: #333;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
+  body {
+    background-color: #fce4ec;
+    font-family: "Courier New", monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    text-align: center;
+  }
 
-    /* Retro computer frame */
-    .screen {
-        background-color: #fff;
-        border: 6px solid #444;
-        border-radius: 10px;
-        max-width: 800px;
-        margin: 30px auto;
-        padding: 20px;
-        box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
-        position: relative;
-        overflow: hidden;
-    }
+  h1 {
+    font-size: 2em;
+    margin-top: 50px;
+    animation: pop 1s ease-in-out infinite alternate;
+    color: #ff4081;
+    text-shadow: 2px 2px white;
+  }
 
-    /* Animated Welcome */
-    h1 {
-        font-size: 2.5rem;
-        animation: pop 1s ease-in-out infinite alternate;
-        color: #d63384;
-    }
+  @keyframes pop {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+  }
 
-    @keyframes pop {
-        0% { transform: scale(1); }
-        100% { transform: scale(1.1); color: #ff69b4; }
-    }
+  .socials {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
 
-    /* Social links */
-    .socials {
-        margin-top: 30px;
-    }
+  .socials a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+  }
 
-    .socials a {
-        margin: 0 10px;
-        text-decoration: none;
-        color: #444;
-        font-size: 1.2rem;
-        background-color: #ffe4f2;
-        padding: 10px;
-        border-radius: 10px;
-        border: 2px solid #ffb6c1;
-        transition: background-color 0.3s;
-    }
+  .socials a img:hover {
+    transform: scale(1.2);
+  }
 
-    .socials a:hover {
-        background-color: #ffb6c1;
-        color: white;
-    }
+  .hello-kitty {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    animation: fadeOut 3s forwards;
+  }
 
-    /* Hello Kitty pop-up */
-    .kitty {
-        position: absolute;
-        width: 80px;
-        pointer-events: none;
-        animation: fadeOut 2s forwards;
-    }
+  @keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5); }
+  }
 
-    @keyframes fadeOut {
-        0% { opacity: 1; transform: scale(0.5) rotate(0deg); }
-        50% { opacity: 1; transform: scale(1.1) rotate(10deg); }
-        100% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
-    }
+  p {
+    margin-top: 10px;
+    color: #880e4f;
+    font-size: 1em;
+    padding: 0 10px;
+  }
 </style>
 </head>
+
 <body>
+  <h1>Welcome!</h1>
+  <p>Hello, my name is Redite and these are my socials:</p>
 
-<div class="screen">
-    <h1>Welcome</h1>
-    <p>Hello, my name is Redite and these are my socials:</p>
-
-    <div class="socials">
-        <a href="https://www.facebook.com/reditebista1" target="_blank">📘 Facebook</a>
-        <a href="https://www.instagram.com/reditebista11/" target="_blank">📸 Instagram</a>
-        <a href="https://www.tiktok.com/@reditebista" target="_blank">🎵 TikTok</a>
-        <a href="https://www.youtube.com/@reditebista4788" target="_blank">▶️ YouTube</a>
-    </div>
-</div>
+  <!-- Social Links -->
+  <div class="socials">
+    <a href="https://www.facebook.com/reditebista1" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+    <a href="https://www.instagram.com/reditebista11/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
+    <a href="https://www.tiktok.com/@reditebista" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></a>
+    <a href="https://www.youtube.com/@reditebista4788" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
+  </div>
 
 <script>
-    // Hello Kitty popping every 2-3 seconds
-    const helloKittyImg = "https://i.imgur.com/KoZec.png"; // Hello Kitty PNG
+  const kittyImgs = [
+    "https://i.ibb.co/T8BhpWQ/hellokitty1.png",
+    "https://i.ibb.co/hVSm1Wd/hellokitty2.png",
+    "https://i.ibb.co/Nx3RpZm/hellokitty3.png"
+  ];
 
-    function popKitty() {
-        const kitty = document.createElement("img");
-        kitty.src = helloKittyImg;
-        kitty.className = "kitty";
-        
-        kitty.style.top = Math.random() * window.innerHeight + "px";
-        kitty.style.left = Math.random() * window.innerWidth + "px";
+  function spawnKitty() {
+    const img = document.createElement("img");
+    img.src = kittyImgs[Math.floor(Math.random() * kittyImgs.length)];
+    img.className = "hello-kitty";
+    img.style.top = Math.random() * window.innerHeight + "px";
+    img.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(img);
 
-        document.body.appendChild(kitty);
+    setTimeout(() => {
+      img.remove();
+    }, 3000);
+  }
 
-        setTimeout(() => {
-            kitty.remove();
-        }, 2000);
-    }
-
-    setInterval(popKitty, Math.random() * 1000 + 2000);
+  setInterval(spawnKitty, 2000);
 </script>
-
 </body>
 </html>
