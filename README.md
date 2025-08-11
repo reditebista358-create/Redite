@@ -84,9 +84,13 @@
 
 <script>
   const kittyImgs = [
-    "https://i.ibb.co/T8BhpWQ/hellokitty1.png",
-    "https://i.ibb.co/hVSm1Wd/hellokitty2.png",
-    "https://i.ibb.co/Nx3RpZm/hellokitty3.png"
+    "<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/55ea2b0f-5d05-433b-80a5-21e51b16c2a7" />
+",
+    "<img width="209" height="241" alt="image" src="https://github.com/user-attachments/assets/a5a93a1b-bc13-4506-9505-b5ec2857d875" />
+
+",
+    "<img width="244" height="207" alt="image" src="https://github.com/user-attachments/assets/53c94918-f869-4f7b-9dea-1b426bd25ef4" />
+"
   ];
 
   function spawnKitty() {
